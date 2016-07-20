@@ -1,2 +1,2 @@
 # Portfolio
-My personal ux design site
+My personal User Experience (UX) Design portfolio site.
