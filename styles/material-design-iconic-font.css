@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Material-Design-Iconic-Font';
+  src: url('../fonts/Material-Design-Iconic-Font.woff2?v=2.1.0') format('woff2'), url('../fonts/Material-Design-Iconic-Font.woff?v=2.1.0') format('woff'), url('../fonts/Material-Design-Iconic-Font.ttf?v=2.1.0') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+    .zmdi {
+      display: inline-block;
+      font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .zmdi-linkedin-box:before {
+  content: '\f356';
+}
+
+.zmdi-github-box:before {
+  content: '\f344';
+}
+
+.zmdi-twitter-box:before {
+  content: '\f35f';
+}
+

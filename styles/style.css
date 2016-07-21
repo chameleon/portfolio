@@ -1,0 +1,358 @@
+/*  Google Analytics tracking code  UA-80829022-1
+
+Minification with cleancss via Grunt- minify, concat, or process batch
+after you install grunt-contrib-cssmin
+Reference https://github.com/gruntjs/grunt-contrib-cssmin
+
+
+
+
+LESS CSS  -  Currently running compiler in-browser mode but will move to server
+1) Reset or Normalize CSS
+2) Set Less vars, mixins, etc
+3) Style icon font - snippets from much larger iconic.css
+4) Mobile-first Styles  (300px-600px here)
+5) Media queries for responsiveness
+*/
+/* 1) Reset or Normalize CSS:  include css reset OR normalize.
+Use (inline) when you want to concat some CSS files (e.g. in an ie7.less), but not necessarily process them (e.g. bootstrap-ie7 uses expressions, which LESS doesn't handle well)
+Otherwise use (less) to have the include processed by less compiler
+SEE:  http://stackoverflow.com/questions/11196915/import-css-file-into-less-file/22594082#22594082
+
+*/
+/*  @import (inline) 'html5-css-reset.css';  */
+/* OR */
+/*  @import (inline) 'normalize.css';        */
+/* 2) Set Less vars, mixins, etc  */
+/* End LESS vars */
+/* 3) Style icon font - snippets from much larger iconic.css */
+@font-face {
+  font-family: 'Material-Design-Iconic-Font';
+  src: url('../fonts/Material-Design-Iconic-Font.woff2?v=2.1.0') format('woff2'), url('../fonts/Material-Design-Iconic-Font.woff?v=2.1.0') format('woff'), url('../fonts/Material-Design-Iconic-Font.ttf?v=2.1.0') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.zmdi {
+  display: inline-block;
+  font: normal normal normal 14px/1 'Material-Design-Iconic-Font';
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.zmdi-linkedin-box:before {
+  content: '\f356';
+}
+.zmdi-github-box:before {
+  content: '\f344';
+}
+.zmdi-twitter-box:before {
+  content: '\f35f';
+}
+.zmdi-stack-overflow:before {
+  content: '\f35c';
+}
+/* END iconic font styles taken from material-design-iconic-font.css */
+/*  4) Mobile-first Styles  (300px-600px here)  */
+@font-face {
+  font-family: 'circusFont';
+  src: url('../fonts/sancreek/sancreek-regular-webfont.eot');
+  src: url('../fonts/sancreek/sancreek-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/sancreek/sancreek-regular-webfont.woff2') format('woff2'), url('../fonts/sancreek/sancreek-regular-webfont.woff') format('woff'), url('../fonts/sancreek/sancreek-regular-webfont.ttf') format('truetype'), url('../fonts/sancreek/sancreek-regular-webfont.svg#sancreekregular') format('svg');
+  font-style: normal;
+  font-weight: 700;
+}
+html {
+  /*  1rem is now = 10px (for setting exact heights like 1.4REM = 14px)  */
+  font-size: 62.6%;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  color: #424136;
+  overflow-x: hidden;
+}
+.bg {
+  background: url('../images/circusTentTiltShift.png') no-repeat;
+  position: fixed;
+  top: 0px;
+  z-index: -1;
+  width: 100%;
+  height: 36rem;
+  background-size: 100% auto;
+  background-position: center top;
+}
+.bg2 {
+  background: url('../images/bg18.png') repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+header {
+  width: 100%;
+  height: 3rem;
+}
+#title-box-bg header {
+  display: none;
+}
+h1 {
+  font-family: 'circusFont', sans-serif;
+  font-size: 2.2rem;
+  color: #424136;
+  padding: 0;
+  text-align: center;
+  margin: 0;
+}
+h3 {
+  font-family: 'Roboto', sans-serif;
+  height: 4.4rem;
+  line-height: 4.4rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #ffffff;
+  padding: 0 0 0 15px;
+  margin: 0px;
+  cursor: pointer;
+  background-color: #8F080E;
+  letter-spacing: 1px;
+  /*border-bottom: 1px solid #6F0007;*/
+}
+h3:hover {
+  font-weight: 400;
+}
+#social_bar {
+  width: 100%;
+  text-align: right;
+  position: relative;
+  top: -5px;
+  right: 20px;
+}
+#social_bar a {
+  outline: none;
+  text-decoration: none;
+}
+#social_bar i {
+  font-size: 2.5rem;
+  /* to override .zmdi style in iconic font.css */
+}
+i {
+  color: #B3AB87;
+  position: relative;
+  bottom: -3px;
+  padding-left: 4px;
+  cursor: pointer;
+}
+i:hover {
+  color: #8F896B;
+  text-shadow: 2px 2px 1px #B3AB87;
+}
+#tent {
+  width: 100%;
+}
+#title-box-bg {
+  width: 100%;
+}
+#title-box {
+  width: 100%;
+  max-width: 601px;
+  margin: 0 auto;
+}
+#monkeyDiv {
+  display: table-cell;
+  width: 48%;
+  text-align: center;
+  /* make monkey a BG image later for >100% size zooming*/
+  /*
+        background: url('../images/UXmonkeyMask400.png') no-repeat;
+        background-size: 100% auto;
+        background-position: center top;
+        */
+}
+#monkey {
+  width: 100%;
+  max-width: 340px;
+}
+#tagline {
+  vertical-align: middle;
+  display: block;
+  margin: 0 10px;
+  position: relative;
+  top: -20px;
+  padding: 0 20px;
+  color: #424136;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  font-style: italic;
+  text-shadow: 2px 2px 12px #ffffff;
+  letter-spacing: .5px;
+  /*text-align: center;*/
+  text-align: justify;
+}
+#tagline h1 {
+  display: block;
+  padding-bottom: 10px;
+}
+#resumeFrame {
+  display: none;
+  border-style: none;
+  width: 90%;
+  max-width: 800px;
+  height: 100%;
+  margin: auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.23);
+  position: relative;
+}
+#download {
+  font-size: .8rem;
+  line-height: .8rem;
+}
+section {
+  display: none;
+  font-size: 1rem;
+  width: 99%;
+  margin: 0;
+  background-color: #ffffff;
+  padding: 20px 0 10px 10px;
+  box-shadow: 0 1px 4px 0 #9F8B8B inset;
+  -moz-box-shadow: 0 1px 4px 0 #9F8B8B inset;
+  -webkit-box-shadow: 0 1px 4px 0 #9F8B8B inset;
+  -ms-box-shadow: 0 1px 4px 0 #9F8B8B inset;
+  -o-box-shadow: 0 1px 4px 0 #9F8B8B inset;
+}
+p {
+  max-width: 600px;
+  padding-right: 10px;
+}
+/*
+#content_1 p, #content_3 p, #content_4 p{
+    //max-width: 600px;
+}
+*/
+/*
+#content_1, #content_3{
+    text-align: center;
+}
+*/
+p,
+ul,
+dl {
+  font-size: 1.4rem;
+  letter-spacing: .5px;
+  line-height: 1.9rem;
+  margin: 5px 15px;
+  padding-bottom: 10px;
+}
+section img {
+  height: 70%;
+  /*  on small screens these should be 70% height but on larger ones go to
+                150% width, etc.
+             */
+}
+.scroll-img {
+  overflow-x: scroll;
+  white-space: nowrap;
+  cursor: url('../images/scroll.png'), move;
+  width: 96%;
+  padding-left: 10px;
+}
+footer p {
+  width: 96%;
+  text-align: center;
+  padding: 10px;
+  max-width: 2000px;
+}
+/* 5) Media queries for responsiveness - 
+        Breakpoints where content seems to like them, not trying to follow device width trends
+        600px - 1019px
+        >= 1020px
+*/
+@media screen and (min-width: 600px) {
+  main,
+  #title-box-bg {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  #social_bar {
+    right: 2px;
+  }
+  h1 {
+    font-size: 2.9rem;
+    /* fixes thin font on Mac Safari */
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  h3:first-of-type {
+    padding-top: 5px;
+  }
+  h3:last-of-type {
+    padding-bottom: 5px;
+  }
+  h3 {
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.6rem;
+    /* fixes thin font on Mac Safari */
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  .bg {
+    width: 601px;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+  #title-box {
+    padding-top: 4rem;
+  }
+  #title-box-bg header {
+    display: block;
+  }
+  #tagline h1 {
+    display: none;
+  }
+  #tagline {
+    width: 52%;
+    display: table-cell;
+    padding: 0 30px;
+    top: 40px;
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+  #resumeFrame {
+    display: block;
+  }
+  #resumeLink {
+    display: none;
+  }
+  #social_bar i {
+    font-size: 3rem;
+    /* to override .zmdi style in iconic font.css */
+  }
+  blockquote {
+    margin: 0;
+  }
+  blockquote:before {
+    display: inline;
+    content: "\201C";
+    font-size: 60px;
+    position: absolute;
+    left: -5px;
+    font-family: 'circusFont';
+  }
+  blockquote:after {
+    display: block;
+    content: "\201D";
+    font-size: 60px;
+    position: absolute;
+    right: 15px;
+    bottom: 60px;
+    font-family: 'circusFont';
+  }
+}
+@media screen and (min-width: 1020px) {
+  section img {
+    cursor: default;
+  }
+}
